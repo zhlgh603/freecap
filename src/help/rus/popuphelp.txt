@@ -1,0 +1,107 @@
+.Topic IDH_POPUP_PROXY_HOST
+IP адрес или доменное имя прокси.
+
+.Topic IDH_POPUP_PROXY_PORT
+Порт для прокси
+
+.Topic IDH_POPUP_PROXY_SOCKS4
+Протокол SOCKS версии 4 
+
+.Topic IDH_POPUP_PROXY_SOCKS4_USERID
+Идентификатор пользователя для SOCKSv4
+
+.Topic IDH_POPUP_PROXY_SOCKS5
+Протокол SOCKS версии 5 
+
+.Topic IDH_POPUP_PROXY_SOCKS5_AUTH
+Потавьте флажок если прокси необходима авторизация
+
+.Topic IDH_POPUP_PROXY_SOCKS5_LOGIN
+Логин для SOCKSv5 прокси.
+
+.Topic IDH_POPUP_PROXY_SOCKS5_PASS
+Пароль для SOCKSv5 прокси.
+
+.Topic IDH_POPUP_PROXY_HTTP
+Протокол прокси -- HTTP.
+
+.Topic IDH_POPUP_PROXY_HTTP_AUTH
+Потавьте флажок если прокси необходима авторизация.
+
+.Topic IDH_POPUP_PROXY_HTTP_LOGIN
+Логин для HTTP прокси.
+
+.Topic IDH_POPUP_PROXY_HTTP_PASS
+Пароль для HTTP прокси.
+
+.Topic IDH_POPUP_PROXY_ADD
+Добавить прокси в цепочку.
+
+.Topic IDH_POPUP_PROXY_UPDATE
+Обновить сведения у выбранной прокси.
+
+.Topic IDH_POPUP_PROXY_DELETE
+Удалить прокси из цепочки.
+
+.Topic IDH_POPUP_PROXY_UP
+Переместить выбранную прокси вверх.
+
+.Topic IDH_POPUP_PROXY_DOWN
+Переместить выбранную прокси вниз.
+
+.Topic IDH_POPUP_PROXY_CHECKPROXY
+Проверка ответа выбранной прокси.
+
+.Topic IDH_POPUP_PROXY_CHAIN
+Цепочка прокси. Чтобы использовать выбранную прокси необходимо поставить флажок.
+
+.Topic IDH_POPUP_DIRECT_LIST
+Список адресов для которых не нужно задействовать механизм туннелинга.
+
+.Topic IDH_POPUP_DIRECT_LIST_ADD
+Добавление нового адреса
+
+.Topic IDH_POPUP_DIRECT_LIST_DEL
+Удаление выбранного адреса из списка.
+
+.Topic IDH_POPUP_PROGRAM_ONLYONE
+При повторной попытке запуска, FreeCap отобразит своё главное окно, если оно оказалось скрытым или свернутым
+
+.Topic IDH_POPUP_PROGRAM_STARTUP
+Запуск FreeCap вместе с Windows
+
+.Topic IDH_POPUP_PROGRAM_RUNMINIZE
+При запуске FreeCap автоматически сворачивается в трей.
+
+.Topic IDH_POPUP_PROGRAM_MINIMIZE
+Сворачивать FreeCap в системный трей (рядом с часами).
+
+.Topic IDH_POPUP_PROGRAM_ADDVIA
+Добавлять строчку "via FreeCap" к заголовкам соксифицируемых приложений.
+
+.Topic IDH_POPUP_PROGRAM_SHOWMESS
+Показывать сообщения об ошибках в диалоговом окошке. Если галочка снята, сообщения будут писаться в лог-файл.
+
+.Topic IDH_POPUP_PROGRAM_DNS
+Порядок разрешения имен DNS.
+
+.Topic IDH_POPUP_LOG_ENABLE
+Включить протоколирование.
+
+.Topic IDH_POPUP_LOG_FILE
+Полный путь к файлу журнала.
+
+.Topic IDH_POPUP_LOG_HOOK
+Протоколировать события связанные с внедрением в процесс приложения.
+
+.Topic IDH_POPUP_LOG_CONN
+Протоколировать события связанные с сетевой активностью приложения.
+
+.Topic IDH_POPUP_LOG_SOCKS
+Протоколировать события связанные с SOCKSv4, SOCKSv5 и HTTP-прокси.
+
+.Topic IDH_POPUP_LOG_WARN
+Протоколировать предупреждающие сообщения.
+
+.Topic IDH_POPUP_LOG_TRAFFIC
+Протоколировать траффик.

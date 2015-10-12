@@ -1,0 +1,59 @@
+BODY {     
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-height: 0px;
+  margin-width: 0px;
+  font-family: Verdana, Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size:10pt;
+  text-decoration: none; 
+}
+
+.tbl_line { background-color: #36c; }
+
+.step { 
+  background-color: #3366cc;
+  font-family: Verdana, Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.listing { 
+  border-color: #FFF;
+
+}
+
+.hdr {
+  background-color: #36c;
+  color: #FFF;
+  font-size: 150%;
+  font-weight: bold;
+  text-align: center;
+/*  text-indent: 30px; */
+}
+
+.def { 
+  background-color: #36c;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.term { 
+  background-color: #e5ecf9;
+  color: #000;
+}
+
+A { 
+  font-family: Arial, Helvetica; 
+  text-decoration: none; 
+  color: #0000FF;
+
+}
+
+A:HOVER { 
+  font-family: Arial, Helvetica; 
+  text-decoration: underline; 
+  color: #FF0000;
+}
+

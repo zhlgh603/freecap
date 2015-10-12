@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>FreeCap Help</title>
+<meta charset="windows-1251">
+<LINK TITLE="styles" REL=stylesheet HREF="defstyle.css" type="text/css">
+</head>
+<body>
+
+<table border=0 width=95%  align=center valign=top cellspacing=0  cellpadding=0>
+<tr class="hdr"><td>Настройка &mdash; прокси</td></tr>
+<tr><td>
+
+<table border=0 width=95% align=center valign=top cellspacing=10 cellpadding=10>
+<tr><td>
+Итак, профиль создан. Теперь нам осталось настроить наш прокси, через который будет ходить выбранная программа. 
+Для этого Вам необходимо узнать (к примеру посмотрев список проксей на сайте <a href="http://www.socksproxy.de/?ref=FreeCap_Help">www.socksproxy.de</A>) четыре вещи: адрес прокси, его порт, тип, логин и пароль.
+
+</td></tr>
+
+<tr><td>
+<table border=0 cellspacing=1 cellpadding=1 align=center>
+<tr><td class="def">адрес прокси</td><td class="term">IP или доменное имя прокси</td></tr>
+<tr><td class="def">порт</td><td class="term">порт на котором прокси работает</td></tr>
+<tr><td class="def">тип</td><td class="term">SOCKSv4, SOCKSv5 или HTTP(S) прокси</td></tr>
+<tr><td class="def">логин/пароль</td><td class="term">Если прокси необходим авторизованный доступ</td></tr>
+</table>
+</td></tr>
+
+<tr><td>
+
+Открываем меню <b>Файл->Настройки</b> и попадаем на первую вкладку "SOCKS"
+<br>
+<center><img  align="center" src="cfg_default_proxy.png"></center>
+Чтобы добавить новый прокси в список вы должны сделать следующее:
+
+</td></tr><tr><td>
+
+<table border=0 cellspacing=1 cellpadding=1 align=center>
+<tr><td class="def">1</td><td class="term">Вписать адрес прокси и его порт в соотвествующие поля.</td></tr>
+<tr><td class="def">2</td><td class="term">Выбрать тип прокси, щелкнув мышкой в соотвествующей группе</td></tr>
+<tr><td class="def">3</td><td class="term">Если прокси необходима авторизация -- поставить флажок "Требуется авторизация" и вписать логин и пароль в соотвествующие поля</td></tr>
+<tr><td class="def">4</td><td class="term">Нажать кнопку <b>"Применить"</b></td></tr>
+</table>
+</td></tr>
+
+<tr><td>
+Пожалуйста учтите что: если вы прописываете HTTP-прокси будьте уверены что она поддерживает т.н. 
+<b>CONNECT</b>. Наиболее типичная ошибка пользователей -- прописать свой корпоративный 
+кэширующий прокси. Подробнее об этом <A href="faq.html#http">смотрите в FAQ</a>
+
+</td></tr>
+
+<tr><td>В большинстве случаев Вам понадобится только один прокси, так что этот этап настройки можно считать завершенным. 
+Если вы хотите задействовать механизм цепочки серверов откройте вкладку <a href="proxy_chain.html">"Цепочка прокси"</a>.
+</td></tr>
+
+
+</table>
+
+</td></tr>
+<tr><td><table class="tbl_line" width=100% border=0 cellpadding=0 cellspacing=0><tr><td><img width=1 height=1 alt=""></td></tr></table></td></tr>
+<tr><td align=right><small><b>Copyright &copy; 2003-2005 by Max Artemev. All rights reserved.</b></small></td></tr>
+</table>
+
+</body>
+</html>

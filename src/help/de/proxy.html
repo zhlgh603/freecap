@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>FreeCap Hilfe</title>
+<meta charset="ISO-8859-1">
+<LINK TITLE="styles" REL=stylesheet HREF="defstyle.css" type="text/css">
+</head>
+<body>
+
+<table border=0 width=95%  align=center valign=top cellspacing=0  cellpadding=0>
+<tr class="hdr"><td>Konfiguration &mdash; Proxy</td></tr>
+<tr><td>
+
+<table border=0 width=95% align=center valign=top cellspacing=10 cellpadding=10>
+<tr><td>
+Nachdem nun das Profil erstellt ist muß der Proxy konfiguriert werden.<br>
+Sie benötigen:<br>
+Die IP Adresse des Proxies, den Port und Typ, und eventuell den LoginName und das Passwort.
+</td></tr>
+
+<tr><td>
+<table border=0 cellspacing=1 cellpadding=1 align=center>
+<tr><td class="def">Proxy address</td><td class="term">IP oder Domain Name</td></tr>
+<tr><td class="def">Port</td><td class="term">Port auf dem der Proxy arbeitet</td></tr>
+<tr><td class="def">Type</td><td class="term">SOCKSv4, SOCKSv5 oder HTTP(S) Proxy</td></tr>
+<tr><td class="def">Login/password</td><td class="term">Falls der Proxy Authentifizierung benötigt.</td></tr>
+</table>
+</td></tr>
+
+<tr><td>
+Öffnen sie das Menü <b>File->Settings</b>, und dort den "Default Proxy" Reiter.
+<br>
+<center><img  align="center" src="cfg_default_proxy.png"></center>
+Für einen neuen Proxy führen Sie die folgenden Schritte aus:
+
+</td></tr>
+<tr><td>
+
+<table border=0 cellspacing=1 cellpadding=1 align=center>
+<tr><td class="def">1</td><td class="term">Füllen Sie die Adresse und den Port des Proxies aus.</td></tr>
+<tr><td class="def">2</td><td class="term">Wählen Sie den Typ des Proxies von der Liste aus.</td></tr>
+<tr><td class="def">3</td><td class="term">Wenn der Proxy Authentifizierung benötigt markieren Sie das Kästchen "Authorization required"</td></tr>
+<tr><td class="def">4</td><td class="term">Drücken Sie auf <b>"Add"</b></td></tr>
+</table>
+  
+</td></tr>
+<tr><td>
+Meistens werden Sie nur einen Proxy benutzen, so daß diese Einstellngen nur einmal gemacht werden müssen. Wenn Sie 
+mehrere Proxies aneinanderreihen wollen können Sie eine <a href="proxy_chain.html">Proxy Kette</a> bilden.
+Erinnerung: Ein HTTP Proxy muß die "CONNECT" Methode unterstützen um mit FreeCap benutzt werden zu können.
+Ein oft gemachter Fehler ist zu versuchen den Firmenproxy der "CONNECT" nicht unterstützt zu verwenden. (<a href="faq.html#http">Mehr...</a>).
+</td></tr>
+
+<tr><td>
+</td></tr>
+
+<tr><td>Die 'Up/Down' Knöpfe sind dazu da die Reihenfolge der Proxies in einer Kette zu verändern.
+</td></tr>
+
+<tr><td>Der 'Check Proxy' Knopf überprüft nur ob der Port stimmt und der Proxy da ist. 'Proxy check' überprüft nicht den Typ oder die Username/Passwort Kombination. Noch nicht.
+</td></tr>
+
+
+</table>
+</td></tr>
+<tr><td><table class="tbl_line" width=100% border=0 cellpadding=0 cellspacing=0><tr><td><img width=1 height=1 alt=""></td></tr></table></td></tr>
+<tr><td align=right><small><b>Copyright &copy; 2003-2005 by Max Artemev. Alle Rechte vorbehalten.</b></small></td></tr>
+</table>
+
+</body>
+</html>

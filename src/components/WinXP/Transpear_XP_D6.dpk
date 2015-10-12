@@ -1,0 +1,49 @@
+package Transpear_XP_D6;
+
+{$R *.res}
+{$R 'XPMenu.dcr'}
+{$R 'WinXP.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Transpear XP Components'}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl,
+  vcljpg;
+
+contains
+  XP_Edit in 'XP_Edit.pas',
+  XP_Tree in 'XP_Tree.pas',
+  XP_IconBox in 'XP_IconBox.pas',
+  XP_MainMenu in 'XP_MainMenu.pas',
+  XP_MenuBar in 'XP_MenuBar.pas',
+  XP_PopUpMenu in 'XP_PopUpMenu.pas',
+  XP_ListBox in 'XP_ListBox.pas',
+  XP_Form in 'XP_Form.pas',
+  XP_Button in 'XP_Button.pas',
+  XPMenu in 'XPMenu.pas',
+  XP_DriveMenu in 'XP_DriveMenu.pas',
+  WinXP in 'WinXP.pas',
+  XP_Panel in 'XP_Panel.pas';
+
+end.

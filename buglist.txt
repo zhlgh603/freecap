@@ -1,0 +1,181 @@
+=======================
+Freecap 3.18
+=======================
+ + HotFix: added configurable "advanced hooking feature". Can be "on" or "off". This feauture intended for 
+   ASProtect'ed programs, but may cause crash sometimes at some workstations... :(
+ + HotFix: Fixed little bug in the WaitForConnect() function for preventing hunging
+ + Fixed Opera's freezing
+ + Fixed broken HTTPS answers, when with CONNECT server response the data from destination address also arrives.
+ + Fixed stupid bug with unchangable log path to c:\freecap.log
+ + Also fixed bug when windows' loader tried to load this file as an executable image.
+ + Finally added support for ASProtect'ed programs. (Yes, WebMoney can be now fully socksified)
+ + Fixed bugs with SOCKSv5 and SOCKSv4a server negotiations (DNS)
+ + Added traffic filters (old-school HELO/EHLO obfuscator). This plugins engine is experimental and can be changed in a future. 
+ + Fixed little GUI bugs with Config dialog.
+ + SOCKS servers checking improvement with coloring/sorting etc.
+ + Added servers inserting by Ctrl+V or Shift+Ins (Yes, just copy'n'paste)
+ + Added non-console freecapCon for desktop shortcuts (Yes, no stupid console window when it starts)
+
+
+=======================
+Freecap 3.17
+=======================
+ + New splitted engine. So inject.dll now just 'injects' and 'hooks' and proxy32.dll is 
+   main proxy engine. (Yes, all ready to port to WideCap -- system proxifier)
+ + Hope I've fixed WSAAsyncSelect completely.
+ + Added new feature into GUI -- a colored logs box inside main window.
+ + Added treeview control for easy navigation in the config window.
+ + Added new feauture -- hide FreeCap instead of closing.
+ + Fixed little bug with ASPack-ed programs handling
+ + Added new languages support. No DLLs now. Only pure text ini-file, so volunteurs could 
+   localize to other than english or russian languages.
+ + New toolbar icons
+ + Added WindowsXP's manifest. (xp skinzz)
+ + Setup build engine now InnoSetup (was GhostInstaller)
+ + InsallDir fix -- now installing to $(program files) 
+ + Proxy switch fix -- new switching algorithm. Hope there will no crashes.
+ + Some UDP traversing tricks
+ + Added button "Apply" to apply changes in the config window
+ + Icons dragged from FreeCap main window, now have same name as original programs but with "via FreeCap" suffix
+ + Drag'n'Drop programs fix
+ + Help update
+
+
+=======================
+Freecap 3.16
+=======================
+ + Fixed Opera's "freezing when connecting to anything".
+ + Fixed UI bugs. (Menus, main window, etc)
+ + Fixed (complete?) memory leak bug by completely turning off plugins engine.
+ + Fixed UDP negotiation. Now Call of Duty works trought FreeCap ;). (Thanks to hkm)
+ + Fixed bug with tray icon. (When explorer.exe crashes, FreeCap's tray icon was missed on taskbar) (Thanks to sevkin)
+ + Added new parameter 'show socks errors' to be silent or not.
+ + Added new feature -- drag'n'drop to desktop or to anything that can accepts shortcuts. Will be 
+   created shortcut for running program socksified.
+
+
+=======================
+Freecap 3.14
+=======================
+ + Fixed memory leak bug. (thanks to all users who reported)
+ + Fixed stupid WinSock recursion bug. (thanks to: aynsvp)
+ + Fixed 100% CPU loading with Mozilla Firefox. (thanks to: WhitEHeaD)
+ + Fixed UDP bugs. 
+ + Fixed 'plugins path' bug. 
+ + Fixed DNS bugs. (thanks to: Dima@R)
+ + Fixed 'parameters' bug with console version of FreeCap.
+ + Added feauture 'direct ports'. 
+ + Added feauture for specifying parameters for socksifing application.
+
+=======================
+Freecap 3.13
+=======================
+ + Recently found that new Opera can't work trought FreeCap. After taking a long time of 
+   exploring I found that opera.dll packed with ASPack. Because problem is global -- 
+   many popular programs packed with ASPack (for example WebMoney Keeper) I make an emulation 
+   of Windows Loader for DLL. It works only under WinNT/2000/XP. 
+ + Fixed 'adminstartor' bug. Now for install and work under FreeCap you doesn't 
+   require the Administrator privilegies 
+ + Fixed UDP bugs. (thanks to 3APA3A) 
+ + Rewritten interface for proxy chains. I hope it now more easy. 
+ + Added plugin support and experimental plugin for SMTP server obfuscation of your real 
+   IP (commands HELO/EHLO) 
+ + Fixed bug with making connection to last proxy item in the chain. 
+ + Fixed bug when user gets message box "Invalid language info in file %s"
+
+=======================
+Freecap 3.12
+=======================
+ + Added remote DNS resolving. Also working with chaining. (tested on SOCKSv5 and HTTP, SOCKSv4 tested partially -- may not work)
+ + Added automatic reloading config by SOCKSified programs.
+ + Fixed bug with last item in the SOCKS chain.
+ + HotFix: Fixed bug with remote DNS on Windows XP.
+ + HotFix: Fixed bug with "add 'via FreeCap' string" when this string was adding 
+   to anything that have window handle (buttons, panels, etc)
+ + HotFix: Added help
+ 
+
+=======================
+Freecap 3.11
+=======================
+ ! Windows 9x compatibility fixed. Stupid memory model! I hate Micro$oft! 
+   Do not terminate socksified program abnormal. It will cause a system crash!
+ + Fixed crash with Windows XP (When user select 'details' in View style)
+ + Fixed visual FreeCap issues with Windows XP (iconz)
+ + Fixed 'UDP warning' when no SOCKS in use.
+ + Added saving/restoring main window size.
+ + HotFix: Fixed bug with console programs when checkbox "Add `via FreeCap` to caption" is disabled.
+ + HotFix: HTTP authorization proxy issue.
+ + HotFix: Visual bug with enabled login/password fields when "Required authorization" checkbox is turned off.
+ + HotFix: Fixed issue with '127.0.0.1' aka localhost
+ + HotFix: Speed optimization
+ + HotFix: Removed so annoyed 'Connection to ... failed' message box. This message will be writed to log.
+ 
+
+
+=======================
+Freecap 3.1
+=======================
+ ! Please note:
+ ! BIND support is deactivated! (because of some technical troubles) 
+   With socksyifing FTP you should check 'passive mode' in your FTP client.
+ ! UDP traversing could be done only with last SOCKSv5 server in your chain, i.e. 
+   UDP chaining isn't possible!.
+
+
+ + Added new parameter in FreecapCon. Now you can specify the library you would to 
+   inject in the target program.
+ + Added new feature -- Add to captions of SOCKSify programs "via FreeCap" text
+ + Fixed visual bug of hiding contents of main FreeCap window
+ + Hard-to-repeat bug with Win98 explorer.exe still open.
+ + Support for recursion of SOCKSifing.
+ + Fixed bug with 'run with system'
+ + Proxys' kernel has been rewritten.
+ + Fixed bug with unselected socks items in Config dialog.
+ + Fixed 'floating General Protection Fault' with some programs.
+
+
+
+=======================
+Freecap 3.0
+=======================
+ + Problem with strange crashes in RTL has been solved. This is not RTL memory manager bug, 
+   sorry to Delphi developers :) Crashes occured beacuse inject.dll was implicit unloaded
+ + Added console version
+ + Added UDP and BIND support
+ + Added support for direct addresses
+ + Fixed lot of bugs
+ + Fixed bug in console version (I forget to set up inject library :))
+
+
+=======================
+Freecap 2.0
+=======================
+ + Added SOCKS chains
+ + Added support for tunneling via HTTP proxies
+ + Fixed all inject.dll crashes (I hope)
+
+=======================
+Freecap 1.2
+=======================
+ + Successfully tested under Micro$oft Codename Longhorn! (next OS after WinXP)
+ + Rewritten code for supporting threaded model. 
+ + Fixed inject.dll crash issues.
+
+
+=======================
+Freecap 1.02
+=======================
+ + Fixed freezing FreeCap'ed "program" when it's close socket before connection 
+   has been established
+ + Fixed some syncronization thread issues 
+ + Fixed bug when FreeCap'ed "program" trying to access internal addresses 
+   (such as 192.168.0.0/16, etc) via SOCKS server.
+ + Using new version of Ghost Installer, so scripts has been updated.
+ + Main icon update :)
+
+
+=======================
+Freecap 1.01
+=======================
+Base version

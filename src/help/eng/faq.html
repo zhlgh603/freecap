@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>FreeCap Help</title>
+<meta charset="windows-1251">
+<LINK TITLE="styles" REL=stylesheet HREF="defstyle.css" type="text/css">
+</head>
+<body>
+<table border=0 width=95%  align=center valign=top cellspacing=0  cellpadding=0>
+<tr class="hdr"><td>Frequently Asked Questions</td></tr>
+<tr><td>
+
+<table border=0 width=95% align=center valign=top cellspacing=3 cellpadding=3>
+<tr>
+   <td><font color=red>Q: What kind of traversing FreeCap does?</font><br>
+       A: Via FreeCap you can traverse only TCP or UDP connections. But UDP only via SOCKSv5, only via one proxy, and without NAT in the middle. 
+       Others protocols (such as icmp, igmp etc) unable to traversing by architecture and RFC restrictions.
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: Why UDP traversing doesn't work through NAT? (or: Why UDP chaining is not possible?)</font><br>
+      A: Because in UDP traversing I should know what port will be used as 'source-port' of the outgoing datagrams. 
+      If there're NAT in the middle, I unable to know it. it's ideology of NAT -- modify packets with setting new
+      src-port for matching with IP in the internal tables when packet will arrived from Internet. 
+      This is also a reason why UDP 'chaining' is not possible through set of SOCKSv5 servers.
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: Give me please proxy list(s)</font><br>
+       A: <a href="http://www.google.com">www.google.com</a>.
+   </td>
+</tr>
+<tr>
+   <td><a name="http"></a><font color=red>Q: I have working HTTP proxy (tested recently), but I unable to connect to any site trought FreeCap with this proxy. InternetExplorer deals with this proxy, but FreeCap doesn't. Why? </font><br>
+       A: Here common problem with HTTP proxy at the users. There'is two types of HTTP proxies: 
+"normal" i.e. cached proxy which doesn't support traversing, and proxy that supports. 
+<b>Freecap <u>required</u> HTTP proxy that supports e.g. "CONNECT method"</b>.
+   </td>
+</tr>
+
+<tr>
+   <td><font color=red>Q: My FreeCap doesn't work! I run the NNN program, but connection is refued (or "Page cannot be displayed", etc) </font><br>
+       A: There are some possible reasons.
+         <ul>
+             <li>Is your proxy still alive? 
+             <li>If you sit in the LAN and trying to establish tunnel from Internet back to LAN.<br>
+                 <i>For example: You run via FreeCap the Internet Explorer with HTTP proxy 192.168.0.1 set in IE settings</i><br>
+             <li>Maybe your ISP have e.g. <b>transparent proxy</b>? <i>(This situation is most possible)</i>
+             <li>Maybe your SOCKS/HTTP proxy required authorization and you forget about it?
+             <li>If none of above then it's good idea to turn on logging in FreeCap.
+         </ul>
+       </font>
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: My FTP doens't work! Connection with server is ok but I don't see any directory/files!</font><br>
+       A: You should enable "passive mode" in your FTP client. Check out documentation to your FTP client.
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: FreeCap crashes!</font><br>
+       A: You should contact with FreeCap developer. And send the detailed information:
+       
+       <ul>
+           <li>OS and service pack if available
+           <li>What program crashes?
+           <li>Screenshot of error message if available
+           <li><b><u>Packed</u></b> FreeCap's LOG file 
+           <li>And detailed information about your steps before crash. 
+       </ul>
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: Does FreeCap contain <b>socks server</b>?</font><br>
+       A: No, it doesn't.
+   </td>
+</tr>
+
+
+<tr>
+   <td>
+   </td>
+</tr>
+
+</table> 
+
+</td></tr>
+<tr><td><table class="tbl_line" width=100% border=0 cellpadding=0 cellspacing=0><tr><td><img width=1 height=1 alt=""></td></tr></table></td></tr>
+<tr><td align=right><small><b>Copyright &copy; 2003-2005 by Max Artemev. All rights reserved.</b></small></td></tr>
+</table>
+
+</body>
+</html>

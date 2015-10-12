@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>FreeCap Help</title>
+<meta charset="windows-1251">
+<LINK TITLE="styles" REL=stylesheet HREF="defstyle.css" type="text/css">
+</head>
+<body>
+
+<table border=0 width=95%  align=center valign=top cellspacing=0  cellpadding=0>
+<tr class="hdr"><td>Config &mdash; Proxy</td></tr>
+<tr><td>
+
+<table border=0 width=95% align=center valign=top cellspacing=10 cellpadding=10>
+<tr><td>
+Well, profile has been created. No we should config our proxy, which will be used for traverse. 
+You should to know five things: address of proxy, port, type, login and password.
+</td></tr>
+
+<tr><td>
+<table border=0 cellspacing=1 cellpadding=1 align=center>
+<tr><td class="def">Proxy address</td><td class="term">IP or domain name</td></tr>
+<tr><td class="def">Port</td><td class="term">port where proxy is working</td></tr>
+<tr><td class="def">Type</td><td class="term">SOCKSv4, SOCKSv5 or HTTP(S) proxy</td></tr>
+<tr><td class="def">Login/password</td><td class="term">If proxy requiring authorization</td></tr>
+</table>
+</td></tr>
+
+<tr><td>
+Open the menu <b>File->Settings</b>. The "Default SOCKS server" tab page should be opened.
+<br>
+<center><img  align="center" src="cfg_default_proxy.png"></center>
+For add new proxy in the list you should to do few steps:
+
+</td></tr>
+<tr><td>
+
+<table border=0 cellspacing=1 cellpadding=1 align=center>
+<tr><td class="def">1</td><td class="term">Write proxy address and port into the fields.</td></tr>
+<tr><td class="def">2</td><td class="term">Select the proxy type from group boxes</td></tr>
+<tr><td class="def">3</td><td class="term">If proxy requires authorization mark the checkbox "Authorization required"</td></tr>
+<tr><td class="def">4</td><td class="term">Press the button <b>"Add"</b></td></tr>
+</table>
+  
+</td></tr>
+<tr><td>
+In most cases you need only one proxy, so this step of configuration is completed. If you 
+want to use 'proxy chaining' you can build <a href="proxy_chain.html">proxy chain</a>
+Please remember: when you're adding the HTTP proxy you should to know that's it supports the CONNECT method.
+Typical mistake of users &mdash; add its corporate cache proxy (<a href="faq.html#http">More...</a>).
+</td></tr>
+
+<tr><td>
+</td></tr>
+
+<tr><td>The 'Up/Down' buttons are for the changing order of the proxies in the chain.
+</td></tr>
+
+<tr><td>The 'Check Proxy' button just checks that this port is alive and according to result mark or unmark the checkbox near proxy in the chain list. 'Proxy check' doesn't 
+check the proxy type or entered correctly login/pasword. For now.
+</td></tr>
+
+
+</table>
+</td></tr>
+<tr><td><table class="tbl_line" width=100% border=0 cellpadding=0 cellspacing=0><tr><td><img width=1 height=1 alt=""></td></tr></table></td></tr>
+<tr><td align=right><small><b>Copyright &copy; 2003-2005 by Max Artemev. All rights reserved.</b></small></td></tr>
+</table>
+
+</body>
+</html>

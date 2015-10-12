@@ -1,0 +1,104 @@
+.Topic IDH_POPUP_PROXY_HOST
+Die IP Adresse oder der Domain Name des Proxies.
+
+.Topic IDH_POPUP_PROXY_PORT
+Der Port des Proxies
+
+.Topic IDH_POPUP_PROXY_SOCKS4
+SOCKS version 4 Protokoll.
+
+.Topic IDH_POPUP_PROXY_SOCKS4_USERID
+User Name für SOCKSv4
+
+.Topic IDH_POPUP_PROXY_SOCKS5
+SOCKS version 5 Protokoll
+
+.Topic IDH_POPUP_PROXY_SOCKS5_AUTH
+Hier anhaken wenn der Proxy Authorisierung benötigt.
+
+.Topic IDH_POPUP_PROXY_SOCKS5_LOGIN
+Login für SOCKSv5.
+
+.Topic IDH_POPUP_PROXY_SOCKS5_PASS
+Passwort für SOCKSv5.
+
+.Topic IDH_POPUP_PROXY_HTTP
+HTTP Protokoll.
+
+.Topic IDH_POPUP_PROXY_HTTP_AUTH
+Hier anhaken wenn der Proxy Authorisierung benötigt.
+
+.Topic IDH_POPUP_PROXY_HTTP_LOGIN
+Login für den HTTP Proxy.
+
+.Topic IDH_POPUP_PROXY_HTTP_PASS
+Passwort für den HTTP Proxy.
+
+.Topic IDH_POPUP_PROXY_ADD
+Proxy zur Kette hinzufügen.
+
+.Topic IDH_POPUP_PROXY_UPDATE
+Informationen des gewählten Proxy auffrischen.
+
+.Topic IDH_POPUP_PROXY_DELETE
+Gewählten Proxy entfernen.
+
+.Topic IDH_POPUP_PROXY_UP
+Proxy in der Kette nach oben verschieben.
+
+.Topic IDH_POPUP_PROXY_DOWN
+Proxy in der Kette nach unten verschieben.
+
+.Topic IDH_POPUP_PROXY_CHECKPROXY
+Antwort des Proxies überprüfen.
+
+.Topic IDH_POPUP_PROXY_CHAIN
+Die Proxy Kette. Um einen Proxy in der Kette zu benützen links das Kästchen anhaken.
+
+.Topic IDH_POPUP_DIRECT_LIST
+Liste von Adressen die nicht durch den Proxy angesprochen werden sollen.
+
+.Topic IDH_POPUP_DIRECT_LIST_ADD
+Eine neue Adresse.
+
+.Topic IDH_POPUP_DIRECT_LIST_DEL
+Gewählte Adresse entfernen.
+
+.Topic IDH_POPUP_PROGRAM_ONLYONE
+Wenn angehakt wird verhindert daß FreeCap irrtümlich noch einmal gestartet wird.
+
+.Topic IDH_POPUP_PROGRAM_STARTUP
+FreeCap mit Windows starten.
+
+.Topic IDH_POPUP_PROGRAM_RUNMINIZE
+FreeCap automatisch minimieren.
+
+.Topic IDH_POPUP_PROGRAM_MINIMIZE
+FreeCap in die Systemleiste (rechts unten bei der Uhr) minimieren.
+
+.Topic IDH_POPUP_PROGRAM_ADDVIA
+anzeige von "via FreeCap" in der Kopfleiste des Applikationsfensters.
+
+.Topic IDH_POPUP_PROGRAM_DNS
+Reihenfolge der DNS Auflösung.
+
+.Topic IDH_POPUP_LOG_ENABLE
+Log mitschreiben.
+
+.Topic IDH_POPUP_LOG_FILE
+Pfad zur FreeCap Log Datei.
+
+.Topic IDH_POPUP_LOG_HOOK
+Alle Ereignisse um injection/hooking im Log erfassen.
+
+.Topic IDH_POPUP_LOG_CONN
+Alle Ereignisse um network/winsock im Log erfassen.
+
+.Topic IDH_POPUP_LOG_SOCKS
+Alle Ereignisse um SOCKSv4, SOCKSv5 und HTTP-Proxy im Log erfassen.
+
+.Topic IDH_POPUP_LOG_WARN
+Warnmeldungen ins Log schreiben. Verhindert Warnungs-Fenster.
+
+.Topic IDH_POPUP_LOG_TRAFFIC
+Datenübertragungen mitschreiben.

@@ -1,0 +1,49 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=freecap.chm
+Contents file=Table of Contents.hhc
+Default topic=annotation.html
+Display compile progress=Yes
+Full-text search=Yes
+Index file=Index.hhk
+Language=0x419 Русский
+Title=FreeCap Help
+
+
+[FILES]
+popuphelp.h
+popuphelp.txt
+addnew.html
+annotation.html
+author.html
+config.html
+direct.html
+faq.html
+license.html
+logging.html
+program.html
+proxy.html
+proxy_chain.html
+
+[ALIAS]
+IDH_ADDNEW=addnew.html
+IDH_ANNOTTATION=annotation.html
+IDH_AUTHOR=author.html
+IDH_CONFIG=config.html
+IDH_DIRECT=direct.html
+IDH_FAQ=faq.html
+IDH_LICENSE=license.html
+IDH_LOGGING=logging.html
+IDH_PROGRAM=program.html
+IDH_PROXY=proxy.html
+IDH_PROXYCHAIN=proxy_chain.html
+
+[MAP]
+#include popuphelp.h
+
+[TEXT POPUPS]
+popuphelp.h
+popuphelp.txt
+
+[INFOTYPES]
+

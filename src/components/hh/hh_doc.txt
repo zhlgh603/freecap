@@ -1,0 +1,472 @@
+================================================================================
+  Title:       "HTML Help Kit for Delphi"
+  Description: Add Html Help support to Delphi
+  Platform:    Delphi 2, 3, 4, 5, 6 ...
+  Version:     1.6
+
+  Email:       support@helpware.net
+  Web:         http://www.helpware.net
+  Copyright (c) 1999-2000 The Helpware Group
+
+  Changes:
+    22-Feb-1999 1.0 Original version
+    23-Feb-1999     Now official - The kit is freeware (see bottom of this file)
+    31-Mar-1999 1.1 Now get HHCtrl.OCX path from registry instead of winsys dir.
+    04-Feb-1999 1.2 hh.pas - Now uses LoadLibrary so we can silently detect if hhtrcl.ocx is installed.
+    09-Jun-1999 HH.PAS 1.3
+                    - Follows Borland coding guidelines more closely - but no support for C++ Builder.
+                    - GetPathToHHCtrlOCX() now uses registry.OpenKeyReadOnly() for safe NT support.
+                      ** Thanks Heedong Lim <hdlim@dcenlp.chungbuk.ac.kr>
+                    - tagHH_GLOBAL_PROPERTY = record now padded for correct 8 byte alignment.
+                      ** Thanks "Marcel van Brakel" <brakelm@chello.nl>
+                HH_FUNCS.PAS 1.3
+                    - Now handles early IE three number version numbers correctly
+                      Was returning x.x.0.x instead of x.x.x.0
+                      ** Thanks "Silterra, Enrico" <enrico.silterra@nortel.com>
+                    - Add IE5.0 & IE5.0a version numbers to GetIEFriendlyVer()
+                    - DebugOut() is only called now with _DebugMode flag.
+    02-JUL-1999 HH_FUNCS.PAS 1.4
+                    - HH.EXE 1.1b onwards supports help context command line param.
+                      "HH.EXE -mapid ID chm". Code no longer reports error.
+                      Removed error HH_ERR_UnsupportedCall = 4;
+                    - Function IsDirWritable() added
+                      Make debug file to winDir if drive if not writable. EG exe on CDROM.
+                    - Fixed some compile errors with D3
+                HH.PAS 1.4
+                    - Slight changes to some structures. Most data structures have been tested.
+    18-APR-2000 HH_FUNCS.PAS 1.5
+                    - Now supports Delphi 2 compiler (was D3 an greater)
+                    - The Hook "Application.OnHelp" object now has some callbacks so
+                      you can easily override the default actions. It also now supports
+                      "Whats this" field based help.
+                    - Added function HHCloseAll(). It simply calls the API with command HH_CLOSE_ALL
+                HH.PAS 1.5
+                    - Now supports Delphi 2 compiler (was D3 an greater)
+                    - Remove references to WIN32 conditional define as not applicable
+    22-DEC-2001 HH_FUNCS.PAS 1.6
+                    - New Func to detect Windows media Player Installations.
+                    - New version numbers added for IE and HH version funcs
+                    - After call to HHCloseAll() call Sleep(0). Helps fix a bug in HH 1.x
+                HH.PAS 1.6
+                    - Better support for Delphi 2 & 3. No longer makes a Read/Write call
+                      into the registry to the the hhctrl.ocx path. Was causing access
+                      violations on non-admin NT systems. 
+
+
+================================================================================
+
+CONTENTS
+  1. WHAT IS IT
+  2. UNIT HH.PAS
+  3. UNIT HH_FUNCS.PAS
+     3.1 GLOBALS VARS AND CONSTANTS
+     3.2 MAKING DELPHI USE HTML HELP
+     3.3 HTML HELP FUNCTIONS
+     3.4 DEBUGING FUNCTIONS
+  4. LEGAL INFO
+
+
+================================================================================
+1. WHAT IS IT
+================================================================================
+   This Kit contains two Delphi Units to give you access to
+   the HTML Help API via Delphi 3 or 4.
+
+   o HH.PAS       ........ Constants and interface to MS Html Help API.
+                           translation from "htmlhelp.h".
+
+   o HH_FUNCS.PAS ........ Library of HTML Help related functions.
+
+                           o Hook "Application.OnHelp" so that all Delphi
+                             Help call are directed to access HTML Help.
+                           o Functions to parse HTML help paths.
+                           o Functions to check component versions.
+                           o Functions to open help via Windows "HH.EXE"
+                             and KeyWorks program "KEYHH.EXE".
+
+
+================================================================================
+2. UNIT HH.PAS
+================================================================================
+   Like WinHelp there is one function provided by the HTML Help API
+   that allows you to open help files, show help pages, show popups
+   and so on.
+
+   For help in using this function download Html Help Workshop,
+   open the online help and search for "API reference".
+
+     OR
+
+   Download just the API.CHM from the MS web site
+
+   http://msdn.microsoft.com/library/tools/htmlhelp/wkshp/download_main.htm
+
+      ---------------------------------------------------------
+
+      function HtmlHelp( hwndCaller: HWND;
+                         pszFile: PChar;
+                         uCommand: UInt;
+                         dwData: DWORD): HWND;
+
+      ---------------------------------------------------------
+
+      EG. To open a CHM file
+
+          HtmlHelp(GetDesktopWindow, "Help.chm", HH_DISPLAY_TOPIC, 0);
+
+      EG. To open a CHM file at a particular Topic
+
+          HtmlHelp(GetDesktopWindow, "Help.chm::/Intro.htm", HH_DISPLAY_TOPIC, 0);
+
+      EG. To open a CHM file at a particular Topic and use a Window definition
+          called "Mainwin".
+
+          HtmlHelp(GetDesktopWindow, "c:\Help.chm::/Intro.htm>Mainwin", HH_DISPLAY_TOPIC, 0);
+
+      EG. To open a CHM file using context help = 1001
+
+
+          HtmlHelp(GetDesktopWindow, "c:\Help.chm", HH_HELP_CONTEXT, 1001);
+
+
+      Note: Most people tend to use 0 instead of GetDesktopWindow. 
+
+
+   **** Warning Warning Will Robinson ****
+
+      If you call the HH API directly from your application, that is not though
+      a second helper program like HH.EXE or KEYHH.EXE, you MUST close any open help
+      windows before shutting down the application or you will probably crash Windows.
+
+      The call to close all windows is simply:
+
+         HH.HtmlHelp(0, nil, HH_CLOSE_ALL, 0);
+      
+
+================================================================================
+3. UNIT HH_FUNCS.PAS
+================================================================================
+   Optional Unit provides a library of handy functions to help you
+   access HTML Help from Delphi 3, 4 and 5 applications.
+
+
+3.1 GLOBAL VARS AND CONSTANTS
+================================================================================
+
+   At the heart of HH is the activeX control "HHCTRL.OCX".
+   At the heart of IE is the activeX control "SHDOCVW.dll".
+   We can get lots of useful information from these two DLLs.
+   These variables are initialized at program startup.
+
+   VAR
+     _hhInstalled: Boolean;           Set TRUE if HTML Help is installed
+     _hhVerStr: String;               eg. '4.73.8252.1' or '' if not found
+     _hhMajVer: word;                 eg. 4
+     _hhMinVer: word;                 eg. 73
+     _hhBuildNo: word;                eg. 8252
+     _hhSubBuildNo: word;             eg. 1
+     _hhFriendlyVerStr: String;       eg. '1.2'
+     _ieInstalled: Boolean;           Set TRUE if Internet Explorer Installed
+     _ieVerStr: String;               eg. '5.00.0910.1309'
+     _ieFriendlyVerStr: String;       eg. 'Internet Explorer 4.01'
+
+
+   Sometimes you need to use a special CHM path prefix.
+   1. When opening a CHM file using "HH.EXE" command line.
+      (prefix not required in later version of HTML Help)
+   2. When opening a CHM file from web page link or in Internet Explorer.
+
+   In these cases you need to prefix the CHM path with either:
+
+   CONST
+     HH_PREFIX_IE4 = 'ms-its:';             //IE4 and above compatible command line prefix
+     HH_PREFIX_IE3 = 'mk:@MSITStore:';      //IE3 and above compatible command line prefix
+
+   EG. ms-its:c:\Help.chm::/Intro.htm
+   EG. mk:@MSITStore:c:\Help.chm::/Intro.htm
+
+   Note: 'ms-its:' can be shorted to just 'its:'. IE4/5 understands this. 
+
+
+3.2 MAKING DELPHI USE HTML HELP
+================================================================================
+   Class "THookHelpSystem" can be used to redirect all Delphi Help calls
+   to HTML Help calls.
+
+   TO INSTALL:
+
+     // 1. Use the unit and declare a global
+     USES HH, HH_FUNCS;
+     var mHHelp: THookHelpSystem;
+
+     // 2. Create the Object in main form create.
+     procedure TMainForm.FormCreate(Sender: TObject);
+     begin
+       mHHelp := THookHelpSystem.Create(pathToCHM, '', htHHAPI);
+       ...
+
+     // 3. Free the object in main form destroy
+     procedure TMainForm.FormDestroy(Sender: TObject);
+     begin
+       //Unhook and free
+       mHHelp.Free;
+       HHCloseAll;     //Close help before shutdown or big trouble
+       ...
+
+     Thats all there is to it. Delphi will now direct all its help
+     calls to the specified CHM help file instead of the WinHelp system.
+     You simply continue to use the "HelpContext" properties and commands
+     like you always have.
+
+     EG. Set Form.HelpContext=1001. Press F1 will open the CHM using context 1001.
+     EG. Set Control.HelpContext=1002. Press F1 will open the CHM using context 1002.
+     EG. Application.HelpContext(1003) will open the CHM using context 1003.
+
+
+   CALLBACKS (new for V1.5):
+
+     Normally the hook class simply receives the WinHelp help messages and executes a 
+     standard HTML Help context call. Two callbacks are available so you can overwrite  
+     the WinHelp Help_Context and Help_ContextPopup messages with your own functions.
+
+     In the real world example that follows, we have intercepted both types of WinHelp 
+     messages so that we can look up the topic path in an ini file using the HelpId.
+
+     Note:  Help_ContextPopup messages (with the controls X,Y position) only appear 
+        if you set the the forms BorderIcons property to include biHelp. Alternatively
+        in the FormCreate() -- Self.BorderIcons := Self.BorderIcons + [biHelp];
+
+     {All Help_Context messages will come here} 
+     procedure MyHelpButtonEvent(ContextHelpID: Longint);        
+     var CHMPath: String;
+     begin
+        // We are have a look up table (ini file) containing the HelpID to HelpTopic mapping
+        CHMPath := LookUpPathFromID(ContextHelpID) ;
+        HH.HtmlHelp(GetDesktopWindow, PChar(CHMPath), HH_DISPLAY_TOPIC, 0)      
+     end;
+
+     {All 'Whats This' & F1 Help_ContextPopup WinHelp events will come here}  
+     procedure F1HelpEvent(ContextHelpID: Longint; X, Y: Integer);
+     var ChmPath: String;
+     begin
+        // We are have a look up table (ini file) containing the HelpID to HelpTopic mapping
+        CHMPath := LookUpPathFromID(ContextHelpID) + '>$GLOBAL_F1WIN';
+        HH.HtmlHelp(GetDesktopWindow, PChar(CHMPath), HH_DISPLAY_TOPIC, 0)      
+     end;
+
+    
+     // 2. Create the Object in main form create.
+     procedure TMainForm.FormCreate(Sender: TObject);
+     begin
+       mHHelp := THookHelpSystem.Create(pathToCHM, '', htHHAPI);
+
+       {hook in our special functions}
+       mHHelp.HelpCallback1 := HelpButtonEvent;
+       mHHelp.HelpCallback2 := F1HelpEvent;
+
+       {Enable Whats This help messages}
+       Self.BorderIcons := Self.BorderIcons + [biHelp];
+       ...
+
+
+     // 3. Free the object in main form destroy
+     procedure TMainForm.FormDestroy(Sender: TObject);
+     begin
+       //Unhook and free
+       mHHelp.Free;
+       HHCloseAll;     //Close help before shutdown or big trouble
+       ... 
+
+   MORE INFO:
+
+      constructor Create(aDefChmFile, aDefWinDef: String; aHostType: THostType);
+
+        o aDefChmFile - Name of CHM help file opened when F1 pressed.
+        o aDefWinDef  - Set to empty string to specify the default help window.
+        o aHostType   - Normally you would specify "htAPI".
+
+        "htAPI"       - This application is hosting the help via the HH API.
+        "htKeyHHexe"  - KeyWorks KeyHH.EXE is hosting the help calls.
+        "htHHexe"     - Windows HH.EXE is hosting the help calls.
+
+        The advantage of using a separate EXE to call help is...
+        a) It separates help from your programs runtime memory
+        b) Delphi applications have problems with hosting HTML Help in the
+           situation where the online help is using a Delphi Automation Server.
+
+           EG. We use a COM control to display videos. When the COM help shuts
+           down it produces and access violations. Whether its Delphs fault or
+           IEs fault its still a problem.
+
+           If you do use ActiveX, COM, Automation libraries to extend your
+           help page capabilities and you get access violations on NT or
+           Win98 machines then change to using the "KeyHH.EXE" host. "HH.EXE"
+           has very limited options and only HH 1.1b and above supports
+           contextual help calls via the command line.
+
+           Download "KeyHH.EXE" from "http://www.keyworks.net/"
+
+           *** 18-Apr-2000: Delphi 5 + HH 1.3 seem OK now.
+
+           
+      Other Methods and Properties:
+
+        function HelpTopic(aTopic: String): Integer;
+        property ChmFile: String;
+        property WinDef: String;
+        property HostType: THostType;
+
+        o You can change the CHM help file at any time.
+          EG. mHHelp.ChmFile := 'c:\myhelp.chm';
+
+        o You can change the CHM window definition at any time.
+          EG. mHHelp.WinDef := 'Mainwin';
+          EG. mHHelp.WinDef := '';           // '' for default window
+
+        o You can change the Host application at any time. See notes above.
+          EG. mHHelp.HostType = htAPI;
+
+        o Open a help topic directly
+          EG. mHHelp.HelpTopic('\options\index.htm');
+
+
+     Note:
+
+       With the new callback option in V1.5 we tend to ignore the above 
+       class methods and when our callback function receives a help event
+       we call the HH.htmlhelp() low level function directly. Its clearer
+       code and HH.htmlhelp() also returns the handle of the HH window.
+
+     Whats This Help
+
+       To enable the "Whats This" Help_ContextPopup messages you must set
+       Self.BorderIcons := Self.BorderIcons + [biHelp];
+       Do this in the FormCreate() or Object Inspector. The Whats This 
+       button in the title bar will not show if you have minimize
+       or maximize buttons. But you can make a toolbar button behave like 
+       a Whats This button like this..
+
+       procedure TForm1.WhatsThisToolButtonClick(Sender: TObject);
+       begin
+          DefWindowProc(handle, WM_SYSCOMMAND, SC_CONTEXTHELP, 0);
+       end; 
+     
+
+
+3.3 HTML HELP FUNCTIONS
+================================================================================
+   Here are some HTML Help functions. You can go fishing through
+   hh_funcs.pas to discover other useful functions.
+
+
+   function HHDisplayTopic(aChmFile, aTopic, aWinDef: String;
+                           aHostType: THostType): Integer;
+
+      Display a help topic from the CHM file using a specific Window Definition.
+
+      aChmFile:  Name of compressed help file to display.
+      aTopic:    Path to html file in Chm file. Leave blank for default page.
+      aWinDef:   Specify a window definition. Leave blank for default Window.
+                 Note: not supported by some versions of HH.EXE and KeyHH.EXE
+      aHostType: Who will host the HH Window. See Notes above.
+      Returns:   All OK, HH_ERR_HHNotInstalled,
+                 HH_ERR_KeyHHexeNotFound (aHostType = htKeyHHexe)
+                 HH_ERR_HHexeNotFound (aHostType = htHHexe)
+      Example:   HHDisplayTopic('windows.chm','about_magnify.htm','windefault', htHHAPI);
+
+
+   function HHTopic(aCHMPath: String; aHostType: THostType): Integer;
+
+      Same as above except aChmFile, aTopic and aWinDef are entered
+      as aChmPath EG. "aChmFile::/Topic>aWinDef"
+
+
+   function HHHelpContext(aChmFile: String; aContextID: DWord;
+                 aWinDef: String; aHostType: THostType): Integer;
+
+      Displays a help topic from the CHM file based on a mapped topic ID.
+
+      aChmFile:  Name of compressed help file to display.
+      aContext:  Specifies the numeric ID of the topic to display.
+      aWinDef:   Specify a window definition. Leave blank for default Window.
+                 Note: not supported by some versions of HH.EXE and KeyHH.EXE
+      aHostType: Who will host the HH Window. See Notes above.
+      Returns:   All OK, HH_ERR_HHNotInstalled,
+                 HH_ERR_KeyHHexeNotFound (aHostType = htKeyHHexe)
+                 HH_ERR_HHexeNotFound (aHostType = htHHexe)
+      Example:   HHHelpContext('windows.chm',200,'windefault', htHHAPI);
+
+
+   function HHContext(aChmPath: String; aContextId: Integer; aHostType: THostType): Integer;
+
+      Same as above except aChmFile and aWinDef are entered as
+      aChmPath EG. "aChmFile>aWinDef".
+      Note: HH.EXE host reqires a prefix EG. "mk:@MSITStore:"
+
+   Procedure HHShowError(err: Integer);
+
+      Call to automatically display any error message for the above functions.
+
+      Example:
+         ret := HHHelpContext('windows.chm',200,'windefault', htHHAPI);
+         HHShowError(ret);  //if ret <> 0 then we see an error
+
+
+3.4 DEBUGING FUNCTIONS
+================================================================================
+    To enable logging of debug messages to log file ".\HHdebug.txt" (you override the name)
+    either set the global var _DebugMode := TRUE
+    or create a file called ".\debug.debug".
+
+    This can be very useful. If a client is reporting problems, then you can
+    simply create ".\debug.debug", run the program and examine the log file.
+
+
+    procedure DebugOut(msgStr: String; const Args: array of const);
+
+       Send a string to the debug log file. Normally used with global "_DebugMode".
+       Takes same parameters as Delphs FORMAT() function.
+       Put lots of debug into you files. You never know when you may need it.
+
+       Example:
+
+         if _DebugMode then
+           DebugOut('_RunDir = "%s"', [_RunDir]);
+
+         Or call DebugOut2() which does the same code.
+
+    procedure ShowDebugFile;
+
+       Display the debug file using windows default text editor.
+
+    procedure ResetDebugFile;
+
+       Reset the log file. Log is truncated and some global vars
+       are written to it.
+
+
+================================================================================
+4. LEGAL INFO
+================================================================================
+
+   o The Kit is Freeware.
+   o You are free to rewrite it and hack it to bits.
+     But please don't distribute it in a modified form.
+   o You may not freely distribute the Kit without the authors consent.
+     Companies and sites may however direct others to our web site.
+   o This software is provided 'as is'. Although tested thoroughly we cannot
+     guarantee the software is bug free. You use it at your own risk.
+   o Support is available via email within reason.
+     IE. Don't expect heaps for something you paid nothing for :-)
+
+   Enjoy, and please take some time to check out the rest of our site
+   at http://www.helpware.net
+
+   support@helpware.net
+
+================================================================================
+
+*** END OF FILE ***
+
+
+

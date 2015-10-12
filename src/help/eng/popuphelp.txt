@@ -1,0 +1,104 @@
+.Topic IDH_POPUP_PROXY_HOST
+The proxy's IP-address or domain name.
+
+.Topic IDH_POPUP_PROXY_PORT
+Proxy port
+
+.Topic IDH_POPUP_PROXY_SOCKS4
+SOCKS version 4 protocol.
+
+.Topic IDH_POPUP_PROXY_SOCKS4_USERID
+User identifier for SOCKSv4
+
+.Topic IDH_POPUP_PROXY_SOCKS5
+SOCKS version 5 protocol
+
+.Topic IDH_POPUP_PROXY_SOCKS5_AUTH
+Set flag here if proxy required authorization.
+
+.Topic IDH_POPUP_PROXY_SOCKS5_LOGIN
+Login for SOCKSv5.
+
+.Topic IDH_POPUP_PROXY_SOCKS5_PASS
+Password for SOCKSv5.
+
+.Topic IDH_POPUP_PROXY_HTTP
+The proxy protocol is HTTP.
+
+.Topic IDH_POPUP_PROXY_HTTP_AUTH
+Set flag here if proxy required authorization.
+
+.Topic IDH_POPUP_PROXY_HTTP_LOGIN
+Login for HTTP proxy.
+
+.Topic IDH_POPUP_PROXY_HTTP_PASS
+Password for HTTP proxy.
+
+.Topic IDH_POPUP_PROXY_ADD
+Add proxy to the chain.
+
+.Topic IDH_POPUP_PROXY_UPDATE
+Update the information of selected proxy.
+
+.Topic IDH_POPUP_PROXY_DELETE
+Remove selected proxy from the chain.
+
+.Topic IDH_POPUP_PROXY_UP
+Move selected proxy up.
+
+.Topic IDH_POPUP_PROXY_DOWN
+Move selected proxy down.
+
+.Topic IDH_POPUP_PROXY_CHECKPROXY
+Check reply from selected proxy.
+
+.Topic IDH_POPUP_PROXY_CHAIN
+The proxy chain. For using proxy in the chain - just mark a checkbox near.
+
+.Topic IDH_POPUP_DIRECT_LIST
+The addresses list which doesn't requires the traversing through proxy.
+
+.Topic IDH_POPUP_DIRECT_LIST_ADD
+Add new address.
+
+.Topic IDH_POPUP_DIRECT_LIST_DEL
+Remove selected address.
+
+.Topic IDH_POPUP_PROGRAM_ONLYONE
+If marked - FreeCap will show main window when second instance will run.
+
+.Topic IDH_POPUP_PROGRAM_STARTUP
+Run FreeCap at the Windows startup.
+
+.Topic IDH_POPUP_PROGRAM_RUNMINIZE
+When FreeCap starts it's automatically minimizing to system tray.
+
+.Topic IDH_POPUP_PROGRAM_MINIMIZE
+Minimize FreeCap to system tray (near clock).
+
+.Topic IDH_POPUP_PROGRAM_ADDVIA
+Add the "via FreeCap" string to application captions.
+
+.Topic IDH_POPUP_PROGRAM_DNS
+The DNS resolution order.
+
+.Topic IDH_POPUP_LOG_ENABLE
+Enable logging.
+
+.Topic IDH_POPUP_LOG_FILE
+Full path to FreeCap log file.
+
+.Topic IDH_POPUP_LOG_HOOK
+Write to log all related to process injection/hooking.
+
+.Topic IDH_POPUP_LOG_CONN
+Write to log all related to network/winsock activity.
+
+.Topic IDH_POPUP_LOG_SOCKS
+Write to log all related to SOCKSv4, SOCKSv5 and HTTP-proxy.
+
+.Topic IDH_POPUP_LOG_WARN
+Write to log warning messages.
+
+.Topic IDH_POPUP_LOG_TRAFFIC
+Log the traffic.

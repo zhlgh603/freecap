@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>FreeCap Help</title>
+<meta charset="windows-1251">
+<LINK TITLE="styles" REL=stylesheet HREF="defstyle.css" type="text/css">
+</head>
+<body>
+
+<table border=0 width=95%  align=center valign=top cellspacing=0  cellpadding=0>
+<tr class="hdr"><td>Config &mdash; direct addresses</td></tr>
+<tr><td>
+
+<table border=0 width=95% align=center valign=top cellspacing=10 cellpadding=10>
+<tr><td>
+When you're sitting in a LAN and working as Internet as local resources, the following page may be useful for you:
+<center><img  align="center" src="cfg_direct.png"></center>
+Here you can specify addresses and ports that shouldn't be used for proxy traversing. In fact the LAN address range may be very large you can specify addresses in the e.g. 
+<a href="http://infocenter.guardiandigital.com/manuals/IDDS/node9.html">CIDR-notation</a>.<br>
+<center><img  align="center" src="new_direct_cidr.png"></center>
+For example record "192.168.0.0/16" means that for all addresses from 192.168.0.1 to 192.168.254.254 tunneling mechanism will not be used.
+Number "16" means how much significant bits contains in the subnet mask. And it is equivalent to "255.255.0.0"<br>
+<center><img  align="center" src="new_direct_normal.png"></center>
+Cunsult with your system administrator about your LAN addresses.
+</td></tr>
+</table>
+
+</td></tr>
+<tr><td><table class="tbl_line" width=100% border=0 cellpadding=0 cellspacing=0><tr><td><img width=1 height=1 alt=""></td></tr></table></td></tr>
+<tr><td align=right><small><b>Copyright &copy; 2003-2005 by Max Artemev. All rights reserved.</b></small></td></tr>
+</table>
+
+</body>
+</html>

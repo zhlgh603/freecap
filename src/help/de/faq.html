@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>FreeCap Hilfe</title>
+<meta charset="ISO-8859-1">
+<LINK TITLE="styles" REL=stylesheet HREF="defstyle.css" type="text/css">
+</head>
+<body>
+<table border=0 width=95%  align=center valign=top cellspacing=0  cellpadding=0>
+<tr class="hdr"><td>Frequently Asked Questions (Oft Gestellte Fragen)</td></tr>
+<tr><td>
+
+<table border=0 width=95% align=center valign=top cellspacing=3 cellpadding=3>
+<tr>
+   <td><font color=red>Q: Welche Arten von Netzwerkverkehr kann FreeCap über den Proxy schicken ?</font><br>
+       A: FreeCap tunnelt TCP und UDP Verbindungen, wobei UDP nur über maximal einen SOCKSv5 Proxy ohne NAT funktioniert. 
+       Andere Protokolle (wie ICMP, IGMP etc) können technisch, oder laut RFC Standards nicht über einen Proxy geschickt werden.
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: Warum funktioniert UDP über Proxy nicht über NAT ? (Oder: Warum kann man UDP Proxies nicht hintereinanderreihen?)</font><br>
+      A: Weil FreeCap für UDP den Ursprungs-Port wissen muss. Wenn dazwischen aber NAT gemacht wird geht diese Information verloren, da NAT die Datenpakete verändert. 
+      Das ist auch der Grund warum UDP nicht über mehrere Proxies laufen kann.
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: Wo finde ich Proxies ?</font><br>
+       A: <a href="http://www.google.com">www.google.com</a>.
+   </td>
+</tr>
+<tr>
+   <td><a name="http"></a><font color=red>Q: Ich habe einen funktionierenden HTTP Proxy, aber kann trotzdem auf keine Internetseite über den Proxy zugreifen. Der Proxy funktioniert im Internet Explorer aber nicht in FreeCap. Warum ?</font><br>
+       A: Es gibt zwei Arten von HTTP Proxies, den sogenannten "caching" Proxy der keine durchgehenden Verbindungen erlaubt sondern nur oft aufgerufene Internetseiten zwischenspeichert, und HTTP Proxies die direkte Verbindungen zulassen.
+<b>Freecap <u>benötigt</u> einen HTTP Proxy der die "CONNECT method" unterstützt, also eine direkte Verbindung durch den Proxy erlaubt.</b>.
+   </td>
+</tr>
+
+<tr>
+   <td><font color=red>Q: FreeCap funktioniert nicht ! Ich benutze das Programm XXX aber die Verbindung wird verweigert ! ("Connection refused" oder "Page cannot be displayed", etc) </font><br>
+       A: Mehrere mögliche Gründe:
+         <ul>
+             <li>Ist der Proxy noch aktiv ? 
+             <li>Versuchen Sie über den Internet Proxy auf einen Computer innerhalb der lokalen Netzwerkes zuzugreifen ?<br>
+             <li>Benutzt ihr Internet Provider einen <b>transparenten Proxy</b>? <i>(Häufiger Grund !)</i>
+             <li>Haben sie auf die Authentifizierung (User/Pass) am Proxy vergessen ?
+             <li>Wenn sie immer noch nicht wissen wo das Problem liegt aktivieren Sie das Log in FreeCap um mehr Informationen zu bekommen.
+         </ul>
+       </font>
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: FTP funktioniert nicht ! Ich kann eine Verbindung zum Server herstellen, aber ich sehe keine Ordner/Dateien !</font><br>
+       A: Sie müssen den "passive mode" in ihrem FTP Programm aktivieren. Dies sollte in der Hilfe des FTP Programmes erklärt sein.
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: FreeCap stürzt ab !</font><br>
+       A: Kontaktieren mich bitte ! Ich benötige die folgenden Informationen :
+       
+       <ul>
+           <li>OS (Windows Version) und Service Pack
+           <li>Welches Programm stürzt ?
+           <li>Bildschirmfoto von der Fehlermeldung wenn vorhanden.
+           <li><b><u>Gepackte (Winzip/Winrar)</u></b> FreeCap Log Datei 
+           <li>Genaue Informationen über die Aktivität die zum Absturz führte. 
+       </ul>
+   </td>
+</tr>
+<tr>
+   <td><font color=red>Q: Ist in FreeCap ein <b>SOCKS Server</b> integriert ?</font><br>
+       A: Nein
+   </td>
+</tr>
+
+
+<tr>
+   <td>
+   </td>
+</tr>
+
+</table> 
+
+</td></tr>
+<tr><td><table class="tbl_line" width=100% border=0 cellpadding=0 cellspacing=0><tr><td><img width=1 height=1 alt=""></td></tr></table></td></tr>
+<tr><td align=right><small><b>Copyright &copy; 2003-2005 by Max Artemev. Alle Rechte vorbehalten.</b></small></td></tr>
+</table>
+
+</body>
+</html>

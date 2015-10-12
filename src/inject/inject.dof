@@ -1,0 +1,115 @@
+[Compiler]
+A=1
+B=0
+C=1
+D=1
+E=0
+F=0
+G=1
+H=1
+I=1
+J=1
+K=0
+L=1
+M=0
+N=1
+O=1
+P=1
+Q=0
+R=0
+S=0
+T=0
+U=0
+V=1
+W=0
+X=1
+Y=1
+Z=1
+ShowHints=1
+ShowWarnings=1
+UnitAliases=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[Linker]
+MapFile=0
+OutputObjs=0
+ConsoleApp=1
+DebugInfo=0
+RemoteSymbols=0
+MinStackSize=16384
+MaxStackSize=1048576
+ImageBase=4194304
+ExeDescription=
+[Directories]
+OutputDir=$(DELPHI)\Projects\FreeCap
+UnitOutputDir=
+PackageDLLOutputDir=
+PackageDCPOutputDir=
+SearchPath=C:\FreeCap\freecap\src\inject;$(DELPHI)\Projects\FreeCap\src\debug
+Packages=Vcl50;Vclx50;VclSmp50;Vcldb50;vclado50;ibevnt50;Vclbde50;vcldbx50;Qrpt50;TeeUI50;TeeDB50;Tee50;Dss50;TeeQR50;VCLIB50;Vclmid50;vclie50;Inetdb50;Inet50;NMFast50;webmid50;dclocx50;dclaxserver50;RACtrl40;IcsDel50;JvBDED5R;JvCoreD5R;JvBandsD5R;JvAppFrmD5R;DJcl50
+Conditionals=
+DebugSourceDirs=
+UsePackages=0
+[Parameters]
+RunParams=
+HostApplication=C:\Program Files\Internet Explorer\IEXPLORE.EXE
+[Language]
+ActiveLang=
+ProjectLang=$00000419
+RootDir=
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=0
+MajorVer=3
+MinorVer=18
+Release=0
+Build=39
+Debug=0
+PreRelease=1
+Special=0
+Private=0
+DLL=1
+Locale=1049
+CodePage=1251
+[Version Info Keys]
+CompanyName=Maxim Artemev
+FileDescription=Injection library. Part of FreeCap.
+FileVersion=3.18.0.39
+InternalName=
+LegalCopyright=Copyright (c) 2004 by Maxim Artemev
+LegalTrademarks=Bert is registered nick of Maxim Artemev
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+[Excluded Packages]
+C:\PROGRA~1\Borland\Delphi5\Projects\Bpl\JclDebugIdeD50.bpl=JCL Debug IDE extension for Delphi 5
+C:\PROGRA~1\Borland\Delphi5\Projects\Bpl\IdeOpenDlgFavoriteD50.bpl=JCL Open and Save IDE dialogs with favorite folders for Delphi 5
+[HistoryLists\hlConditionals]
+Count=2
+Item0=NOXEXPORT_HOOK
+Item1=DEBUG
+[HistoryLists\hlUnitAliases]
+Count=1
+Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+[HistoryLists\hlSearchPath]
+Count=7
+Item0=C:\FreeCap\freecap\src\inject;$(DELPHI)\Projects\FreeCap\src\debug
+Item1=$(DELPHI)\Lib\Debug;C:\FreeCap\freecap\src\inject;$(DELPHI)\Projects\FreeCap\src\debug
+Item2=$(DELPHI)\Lib\Debug;C:\FreeCap\freecap\src\inject;C:\MYDOWN~1\JVCL30~1\jcl\lib\D5\debug;$(DELPHI)\Projects\FreeCap\src\debug
+Item3=$(DELPHI)\Lib\Debug;C:\MYDOWN~1\JVCL30~1\jcl\lib\D5\debug;$(DELPHI)\Projects\FreeCap\src\debug
+Item4=$(DELPHI)\Projects\FreeCap\src\debug
+Item5=$(DELPHI)\Lib\Debug;$(DELPHI)\Projects\FreeCap\src\debug
+Item6=C:\Program Files\Borland\Delphi5\Projects\FreeCap\src\debug
+[HistoryLists\hlOutputDirectorry]
+Count=12
+Item0=$(DELPHI)\Projects\FreeCap
+Item1=C:\FreeCap\freecap\src\inject
+Item2=C:\Program Files\Far\Plugins\freecap
+Item3=C:\Program Files\Courier Email
+Item4=C:\Program Files\Courier Email\plugins
+Item5=C:\Program Files\Trillian
+Item6=C:\Program Files\Far\Plugins\1
+Item7=$(DELPHI)\Projects\Test
+Item8=C:\Program Files\Borland\Delphi5\Projects\Test
+Item9=C:\Program Files\Opera7\Program\Plugins
+Item10=C:\Program Files\Opera75\Program\Plugins
+Item11=C:\Program Files\Opera75\Plugins
