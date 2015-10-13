@@ -21,47 +21,6 @@ object frmMain: TfrmMain
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object TrayIcon1: TTrayIcon
-    Left = 16
-    Top = 160
-    Width = 33
-    Height = 33
-    AutoUpdate = True
-    Enabled = False
-    Icon.Data = {
-      0000010001002020040000000000E80200001600000028000000200000004000
-      0000010004000000000000020000000000000000000000000000000000000000
-      000000008000008000000080800080000000800080008080000080808000C0C0
-      C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000DDDDD0000000000000000000000
-      0DDDDDDDDDDDDD00000000000000000DDDDDDDDDDDDDDDDD00000000000000DD
-      DDDDDDDDDDDDDDDDDD000000000000DDDDDDDDDDDDDDDDDDDDDD000000000DDD
-      DDDDDDDDDD0000000000D00000000DDDDDDDDDDD00CCCCCCC099000000000DDD
-      DDDDDD00CCCCCCCCC099999000000DDDDDDDD0CCCCCCCCCCC099999990000DDD
-      DDDD0CCCCCCCCCCCC099999999000DDDDDDD0CCCCCCCCCCCC099999999900DDD
-      DDD00CCCCCCCCCCCC0999999999000DDDD0BB0CCCCCCCCCCC0999999999000DD
-      DD0BB0CCCCCCCCCCC099999999900000DD0BB0CCCCCCCCCCC099999999900000
-      0D0BB0CCCCCCCCCCC099999999900000000BBB0CCCCCCCCCC099999999900000
-      000BBB0CCCCCCCCC09999999990000000000BBB0CCCCCCCC0999999990B00000
-      0000BBB0CCCCCCCC099999999000000000000BBB0CCCCCCC099999990B000000
-      00000BBBB0CCCCCC09999990B0000000000000BBBB0CCCCC0999990B00000000
-      0000000BBBB0CCC0999900B000000000000000000BBB00C09900BB0000000000
-      00000000000BBB0000BB00000000000000000000000000DDD000000000000000
-      000000000000000000000000000000000000000000000000000000000000FFFF
-      FFFFFFFFFFFFFF83FFFFF8003FFFE0000FFFC00003FF800000FF8000007F0000
-      003F0000000F0000000700000003000000010000000000000000800000008000
-      0000C0000000F0000000F8000000FC000000FE000000FE000001FF000001FF00
-      0003FF800007FFC0000FFFE0001FFFF8003FFFFE00FFFFFFC7FFFFFFFFFF}
-    Tip = 'FreeCap'
-    ShowTip = True
-    TaskIconID = 0
-    State = tiEnabled
-    Interval = 1000
-    WhereIcons = tiInExe
-    OnDblClick = Showmainwindow1Click
-    OnMouseDown = TrayIcon1MouseDown
-  end
   object ControlBar1: TControlBar
     Left = 0
     Top = 0
@@ -130,7 +89,6 @@ object frmMain: TfrmMain
     Width = 581
     Height = 19
     Panels = <>
-    SimplePanel = False
   end
   object Panel1: TPanel
     Left = 0
@@ -139,7 +97,7 @@ object frmMain: TfrmMain
     Height = 352
     Align = alClient
     Caption = 'Panel1'
-    TabOrder = 3
+    TabOrder = 2
     object Splitter1: TSplitter
       Left = 1
       Top = 258
@@ -149,52 +107,22 @@ object frmMain: TfrmMain
       Align = alBottom
       Beveled = True
     end
-    object lstProgram: TOLEListView
-      Left = 1
-      Top = 1
-      Width = 579
-      Height = 257
-      Align = alClient
-      Columns = <
-        item
-          Caption = 'Profile'
-          Width = 150
-        end
-        item
-          AutoSize = True
-          Caption = 'FullPath'
-        end
-        item
-          Caption = 'Working directory'
-          Width = 80
-        end>
-      HideSelection = False
-      IconOptions.AutoArrange = True
-      LargeImages = IcoList
-      ReadOnly = True
-      PopupMenu = PopupMenu1
-      SmallImages = SmallIco
-      SortType = stText
-      TabOrder = 0
-      ViewStyle = vsReport
-      OnDblClick = RunAppCmdExecute
-      OnDragOver = lstProgramDragOver
-      OnKeyDown = lstProgramKeyDown
-      OnResize = lstProgramResize
-      OnSelectItem = lstProgramSelectItem
-      OnDrop = lstProgramDrop
-      OnShellLinkCreate = lstProgramShellLinkCreate
-    end
     object Rich: TRichEdit
       Left = 1
       Top = 263
       Width = 579
       Height = 88
       Align = alBottom
+      Font.Charset = GB2312_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
       HideSelection = False
       HideScrollBars = False
+      ParentFont = False
       ScrollBars = ssVertical
-      TabOrder = 1
+      TabOrder = 0
     end
   end
   object MainMenu1: TMainMenu
@@ -816,33 +744,6 @@ object frmMain: TfrmMain
       C001001F007F8001C001007F007F8001C001007F007F8001C00300FF00FF8001
       C00701FF01FFC003C00F03FF03FFFFFF00000000000000000000000000000000
       000000000000}
-  end
-  object WSocket: TWSocket
-    LineMode = False
-    LineLimit = 65536
-    LineEnd = #13#10
-    LineEcho = False
-    LineEdit = False
-    Proto = 'tcp'
-    LocalAddr = '0.0.0.0'
-    LocalPort = '0'
-    MultiThreaded = False
-    MultiCast = False
-    MultiCastIpTTL = 1
-    ReuseAddr = True
-    ComponentOptions = []
-    ListenBacklog = 5
-    ReqVerLow = 1
-    ReqVerHigh = 1
-    OnDataAvailable = WSocketDataAvailable
-    FlushTimeout = 60
-    SendFlags = wsSendNormal
-    LingerOnOff = wsLingerOn
-    LingerTimeout = 0
-    SocksLevel = '5'
-    SocksAuthentication = socksNoAuthentication
-    Left = 64
-    Top = 216
   end
   object SmallIco: TImageList
     Left = 16

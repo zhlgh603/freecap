@@ -73,10 +73,9 @@ begin
 
 
    Application.CreateForm(TfrmMain, frmMain);
-
-   Application.CreateForm(TfrmNewProxy, frmNewProxy);
-   Application.CreateForm(TfrmNewDirectIP, frmNewDirectIP);
-   Application.CreateForm(TfrmUpdates, frmUpdates);
+  Application.CreateForm(TfrmNewProxy, frmNewProxy);
+  Application.CreateForm(TfrmNewDirectIP, frmNewDirectIP);
+  Application.CreateForm(TfrmUpdates, frmUpdates);
   if cfg.prog_run_tray then
    begin
         frmMain.TrayIcon1.Enabled := True;
