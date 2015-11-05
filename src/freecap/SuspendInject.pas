@@ -163,6 +163,10 @@ var
    StartInfo: STARTUPINFO;
    dwError: DWORD;
    TmpBuff: array[0..MAX_PATH] of Char;
+   CmdLine: string;
+   CmdLineLength: Integer;
+   pCmdLine: PChar;
+
 begin
      ZeroMemory(@startInfo, SizeOf(STARTUPINFO));
      StartInfo.cb := SizeOf(STARTUPINFO);
@@ -201,10 +205,17 @@ begin
         pszWorkDir := TmpBuff;
 
 
+     //20151013, lgh, fix call CreateProcess
+     CmdLine := '"' + pszAppName + '" ' + pszCmdLine;
+     CmdLineLength := Length(CmdLine) + 1;
+     GetMem(pCmdLine, CmdLineLength);
+     FillMemory(pCmdLine, CmdLineLength, 0);
+     StrCopy(pCmdLine, PChar(CmdLine));
+
      // Create suspended process
      result := CreateProcess(
                     nil,                          // lpszImageName
-                    PChar('"' + pszAppName + '" ' + pszCmdLine),            // lpszCommandLine
+                    pCmdLine,                     // lpszCommandLine
                     nil,                          // lpsaProcess
                     nil,                          // lpsaThread
                     FALSE,                        // fInheritHandles
@@ -222,6 +233,7 @@ begin
           ShowMessage('Unable to run process! ' + GetErrorDesc(dwError) + ' (' + IntToStr(dwError) + ')');
           {$ENDIF}
      end;
+     FreeMemory(pCmdLine);
 end;
 
 function TSuspendInjector.PlaceInjectionStub: Boolean;

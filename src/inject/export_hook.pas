@@ -136,7 +136,7 @@ asm
 
    mov    ebx, eax
 
-   mov    eax, sizeof(TExportEntry)    // get entries item
+   mov    eax, type TExportEntry        // get entries item           
    mov    edx, ebx                     //
    mul    edx                          // eax = entries + index * sizeof(one item)
    lea    ecx, dword ptr entries       // get ptr to entries array

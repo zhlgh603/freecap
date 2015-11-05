@@ -327,6 +327,8 @@ var
    bmp, bmp2 : TBitmap;
    progname  : string;
    res       : integer;
+   filename  : string;
+   pfilename : PChar;
 
    function CreateProgramImage(ico: TIcon; Width, Height: Integer): TBitmap;
    var
@@ -376,8 +378,18 @@ begin
      res := ExtractIconEx(PChar(ExtractFilePath(Path) + progname), icoIndex, pData^.hIco, pData^.hSmallIco, 1);
      if res <= 1 then
      begin
-          pData^.hIco := ExtractAssociatedIcon(hInstance, PChar(ExtractFilePath(Path) + progname), icoIndex);
+          (**
+          20151013, lgh
+          ExtractAssociatedIcon它的第二个参数也必须是一个可写的内存指针，否则会崩溃。
+          http://blog.codingnow.com/2009/02/extractassociatedicon_aeoaieia.html
+          *)
+          filename := ExtractFilePath(Path) + progname;
+          GetMem(pfilename, Length(filename)+1);
+          FillMemory(pfilename, Length(filename)+1, 0);
+          StrCopy(pfilename, PChar(filename));
+          pData^.hIco := ExtractAssociatedIcon(hInstance, PChar(filename), icoIndex);
           pData^.hSmallIco := pData^.hIco;
+          FreeMemory(pfilename);
 
           {Big icon 32x32}
           ico := TIcon.Create;
@@ -594,7 +606,6 @@ var
    MI: TMenuItem;
    LCID: integer;
 begin
-  
       TrayIcon1 := TTrayIcon.Create(Self);
       TrayIcon1.Left := 16;
       TrayIcon1.Top := 160;

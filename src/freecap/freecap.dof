@@ -130,18 +130,38 @@ OriginalFilename=
 ProductName=FreeCap
 ProductVersion=3.17.0.0
 Comments=
+[HistoryLists\hlConditionals]
+Count=2
+Item0=NOXEXPORT_HOOK
+Item1=DEBUG
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
-Count=3
+Count=8
 Item0=..\components\xmlconf;..\components\hh;..\components\OleListView;..\components\TrayIcon;..\components\WinXP;..\components\ICS
-Item1=..\components\xmlconf;..\components\hh;..\components\OleListView
-Item2=..\components\xmlconf;..\components\hh;..\OleListView
+Item1=C:\FreeCap\freecap\src\inject;$(DELPHI)\Projects\FreeCap\src\debug
+Item2=$(DELPHI)\Lib\Debug;C:\FreeCap\freecap\src\inject;$(DELPHI)\Projects\FreeCap\src\debug
+Item3=$(DELPHI)\Lib\Debug;C:\FreeCap\freecap\src\inject;C:\MYDOWN~1\JVCL30~1\jcl\lib\D5\debug;$(DELPHI)\Projects\FreeCap\src\debug
+Item4=$(DELPHI)\Lib\Debug;C:\MYDOWN~1\JVCL30~1\jcl\lib\D5\debug;$(DELPHI)\Projects\FreeCap\src\debug
+Item5=$(DELPHI)\Projects\FreeCap\src\debug
+Item6=$(DELPHI)\Lib\Debug;$(DELPHI)\Projects\FreeCap\src\debug
+Item7=C:\Program Files\Borland\Delphi5\Projects\FreeCap\src\debug
 [HistoryLists\hlOutputDirectorry]
-Count=2
+Count=13
 Item0=..\..\exe
-Item1=$(DELPHI)\Projects\Freecap
+Item1=$(DELPHI)\Projects\FreeCap
+Item2=C:\FreeCap\freecap\src\inject
+Item3=C:\Program Files\Far\Plugins\freecap
+Item4=C:\Program Files\Courier Email
+Item5=C:\Program Files\Courier Email\plugins
+Item6=C:\Program Files\Trillian
+Item7=C:\Program Files\Far\Plugins\1
+Item8=$(DELPHI)\Projects\Test
+Item9=C:\Program Files\Borland\Delphi5\Projects\Test
+Item10=C:\Program Files\Opera7\Program\Plugins
+Item11=C:\Program Files\Opera75\Program\Plugins
+Item12=C:\Program Files\Opera75\Plugins
 [Exception Log]
 EurekaLog Version=6014
 Activate=0

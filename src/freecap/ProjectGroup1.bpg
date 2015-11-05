@@ -9,12 +9,15 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = freecap.exe
+PROJECTS = freecap.exe inject.dll
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
 
 freecap.exe: freecap.dpr
+  $(DCC)
+
+inject.dll: ..\inject\inject.dpr
   $(DCC)
 
 

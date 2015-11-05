@@ -17,6 +17,9 @@ object frmConfig: TfrmConfig
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
+  DesignSize = (
+    733
+    517)
   PixelsPerInch = 96
   TextHeight = 13
   object btnOK: TButton
@@ -63,16 +66,14 @@ object frmConfig: TfrmConfig
     object NavSplitter: TSplitter
       Left = 153
       Top = 1
-      Width = 3
       Height = 471
-      Cursor = crHSplit
     end
     object PageControl1: TPageControl
       Left = 156
       Top = 1
       Width = 576
       Height = 471
-      ActivePage = tabDefault
+      ActivePage = tabProgram
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 0
@@ -237,6 +238,9 @@ object frmConfig: TfrmConfig
           Height = 320
           Caption = 'Default proxy'
           TabOrder = 0
+          DesignSize = (
+            329
+            320)
           object Label2: TLabel
             Left = 34
             Top = 16
@@ -261,6 +265,9 @@ object frmConfig: TfrmConfig
             Anchors = [akLeft, akTop, akRight]
             Caption = 'Protocol'
             TabOrder = 2
+            DesignSize = (
+              312
+              257)
             object labUSERID: TLabel
               Left = 24
               Top = 40
@@ -277,6 +284,9 @@ object frmConfig: TfrmConfig
               Anchors = [akLeft, akTop, akRight]
               Caption = 'Authentication'
               TabOrder = 4
+              DesignSize = (
+                278
+                73)
               object Label4: TLabel
                 Left = 64
                 Top = 16
@@ -384,6 +394,9 @@ object frmConfig: TfrmConfig
               Anchors = [akLeft, akTop, akRight]
               Caption = 'Authentication'
               TabOrder = 7
+              DesignSize = (
+                278
+                73)
               object Label9: TLabel
                 Left = 64
                 Top = 16
@@ -510,6 +523,9 @@ object frmConfig: TfrmConfig
           Align = alBottom
           BevelInner = bvLowered
           TabOrder = 1
+          DesignSize = (
+            568
+            162)
           object ShareLabel: TLabel
             Left = 176
             Top = 40
@@ -601,6 +617,9 @@ object frmConfig: TfrmConfig
       object tabShare: TTabSheet
         Caption = 'SocksShare'
         ImageIndex = 6
+        DesignSize = (
+          568
+          440)
         object groupSocksShare: TGroupBox
           Left = 0
           Top = 0
@@ -860,6 +879,9 @@ object frmConfig: TfrmConfig
         HelpContext = 3090
         Caption = 'Program'
         ImageIndex = 2
+        DesignSize = (
+          568
+          440)
         object Image3: TImage
           Left = 16
           Top = 8
